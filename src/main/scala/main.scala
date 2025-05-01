@@ -2,17 +2,14 @@ def calculateMinimumHP(dungeon: Array[Array[Int]]): Int =
   val m = dungeon.length
   val n = dungeon(0).length
 
-  // dp(i)(j): the minimum health needed to reach the princess from cell (i, j)
   val dp = Array.ofDim[Int](m + 1, n + 1)
 
-  // Fill dp with a large number
   for
     i <- 0 to m
     j <- 0 to n
   do
     dp(i)(j) = Int.MaxValue
 
-  // The knight needs at least 1 health when he reaches the princess
   dp(m)(n - 1) = 1
   dp(m - 1)(n) = 1
 
